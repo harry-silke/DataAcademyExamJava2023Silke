@@ -1,0 +1,408 @@
+
+-- main
+    public void main{
+    atm.loadUsers();
+    atm.loadAccounts();
+    atm.interactATM();
+
+    }
+
+
+
+-- ATM class
+
+    users = new HashMap<>();
+
+
+public void interactATM{
+    // greets new user and asks for id
+
+        print (please enter your user id);
+
+    //finds what user they are and makes them current user
+
+        user = users.get(id)
+        if (user == null || id != an int){
+               print ("Wrong input: Invalid Account ID")
+               }
+
+        else
+
+       print ('Welcome' firstName + lastName + '!')
+
+
+
+
+       print ('Select an option: 1) Deposit 2) Withdraw 3) Balance q) Quit'
+       // check action
+       option = scanner.value
+            if option = 'q'{
+            print ("Your checking account balance is " + this.checkingAccount.balance  " "and savings balance is " +  this.savingsAccount.balance")
+            break;
+            }
+
+
+       if accountType = 'q'{
+                   print ("Your checking account balance is " + this.checkingAccount.balance  " "and savings balance is " +  this.savingsAccount.balance")
+                   go back to start;
+                   }
+       account = user.getAccount(accountType)
+       msg = account.getAction(action)
+
+    if (user.hasCheckingAccount = false){
+        if (option = 1){
+            handleDepositSavings();}
+        if (option = 2){
+            handleWithdrawSavings();
+                }
+        if (option = 3){
+            handleBalanceSavings();
+                }
+    }
+
+    if (user.hasSavingsAccount = false)
+        if (option = 1){
+            handleDepositChecking();}
+        if (option = 2){
+            handleWithdrawChecking();}
+        if (option = 3){
+            handleBalanceChecking();}
+        }
+     if (user has both accounts){
+        if (option = 1){
+                 handleDeposit();}
+        if (option = 2){
+                 handleWithdraw();}
+        if (option = 3){
+                 handleBalance();}
+             }
+
+}
+
+
+private handleWithdraw{
+        print (" select an account 1 for checking + user.checkingAccountNumber + 2 for savings + user.savingsAccountNumber")
+        accountType = scanner next line;
+    print(" how much would you like to withdraw"
+    value = scanner double;
+    try (value = a double)
+    exception( getFinalString);
+
+    if (accountType = savings){
+    user.getSavings.withdraw(value)
+    }
+    if (accountType = checking){
+    user.getChecking.withdraw(value)
+    }
+else ( user.getFinalString);
+}
+
+private handleBalance {
+        print (" select an account 1 for checking + user.checkingAccountNumber + 2 for savings + user.savingsAccountNumber")
+        accountType = scanner nextLine;
+
+         if (accountType = savings){
+            user.getSavings.checkBalance()
+            }
+            if (accountType = checking){
+            user.getChecking.checkBalance(value)
+            }
+        else ( user.getFinalString);
+        }
+
+private handleDeposit{
+    print (" select an account 1 for checking + user.checkingAccountNumber + 2 for savings + user.savingsAccountNumber")
+    accountType = scanner next line;
+    print(" how much would you like to withdraw"
+    value = scanner double;
+    try (value = a double)
+    exception( getFinalString);
+
+    if (accountType = savings){
+    user.getSavings.deposit(value)
+    }
+    if (accountType = checking){
+    user.getChecking.deposit(value)
+    }
+else ( user.getFinalString);
+}
+
+each handle will just change the options given and what account number
+to project. For example if the user does not have a checking account, that
+number will not be displayed and visa versa.
+
+private handleDepositChecking{
+    print (" select an account 1 for checking + user.checkingAccountNumber")
+    accountType = scanner next line;
+    print(" how much would you like to deposit"
+    value = scanner double;
+    try (value = a double)
+    exception( getFinalString);
+
+    if (accountType = checking){
+    user.getChecking.deposit(value)
+    }
+else ( print("Balance:");
+else ( print("Checking " + checkingAccount.balance);
+
+
+}private handleWithdrawSaving{
+    print (" select an account 1 for saving + user.savingAccountNumber")
+    accountType = scanner next line;
+    print(" how much would you like to withdraw"
+    value = scanner double;
+    try (value = a double)
+    exception( getFinalString);
+
+    if (accountType = checking){
+    user.getSaving.withdraw(value)
+    }
+else ( print("Balance:");
+else ( print("Checking " + savingsAccount.balance);
+}
+
+private handleWithdrawSaving{
+    print (" select an account 1 for savings + user.savingsAccountNumber")
+    accountType = scanner next line;
+    print(" how much would you like to withdraw")
+    value = scanner double;
+    try (value = a double)
+    exception( getFinalString);
+
+    if (accountType = savings){
+    user.getSavingsAccount.deposit(value)
+    }
+else {( print("Balance:");
+ ( print("Checking " + checkingAccount.balance);}
+}
+private handleWithdrawChecking{
+    print (" select an account 1 for savings + user.checkingAccountNumber")
+    accountType = scanner next line;
+    print(" how much would you like to withdraw")
+    value = scanner double;
+    try (value = a double)
+    exception( lse ( print("Balance:");
+                ( print("Checking " + checkingAccount.balance););
+
+    if (accountType = savings){
+    user.getSavingsAccount.deposit(value)
+    }
+else ( print("Balance:");
+else ( print("Checking " + checkingAccount.balance);
+}
+
+
+
+
+
+
+public boolean loadAccounts(string fileName){
+
+    if (users.size() == 0) {
+    // users must be loaded in first
+    }
+    return false;
+    }
+        //break apart using ||| and split
+        // assign each variable to parts of the list that split gives
+
+        id = values[0]
+        accountNumber = values[1];
+        accountType = values[2];
+
+        user = users.get(id)
+            // create new user depending on account
+       if (accountType = 'Saving') {
+             user.createAccount(AccountType.SAVING, accountBalance, id, accountNumber);
+       } else if(accountType = 'Checking'  {
+             user.createAccount(AccountType.CHEQUE, accountBalance, id, accountNumber);
+                     }
+
+
+}
+
+public boolean loadUsers(){
+        // split using ','
+        // create new user
+        for (line in file){
+            line = values
+            User user = new User (values[0],values[1], values [2], id);
+            users.put(values[0], user)
+        }
+        return true
+}
+}
+
+public hasID(users, int){
+if users.isEmpty || !user.containsKey(userID){
+return false;
+}
+}
+
+-- User Class
+
+public class User{
+       private Account savingsAccount;
+       private Account checkingAccount;
+       private string mobileNumber;
+       private string savingsAccountNumber;
+       private string checkingAccountNumber;
+       private string firstName;
+       private string lastName;
+
+   -- initialise user
+
+public User(String firstname, String lastname, String mobileNumber, int id){
+        this.firstname=firstname;
+        this.lastname=lastname;
+        this.mobileNumber=mobileNumber;
+        this.id=id;
+        arraylist of accounts;
+    }
+
+      -- each getter and setter
+
+
+      public Account createAccount(accountType, balance, id,  accountNumber){
+      account newAccount = new Account(balance, id, accountNumber,accountType)
+        if (accountType == SAVING){
+            this.savingsAccount = newAccount;
+            return this.savingsAccount;
+        }
+        if (accountType == CHEQUE){
+            this.checkingAccount = newAccount;
+            return this.checkingAccount;
+        }
+        return newAccount;
+      }
+
+      getAccount(accountType){
+            if (accountType == SAVINGS){
+                 return savingsAccount;
+                }
+             if (accountType == CHEQUE){
+                return checkingAccount;
+                }
+
+      }
+
+      getFinalNotificationString() {
+      print ("Account Balances")
+      print ("Savings:" + savingsAccount.getBalance());
+      print ("Checking:" + checkingAccoung.getBalance());
+
+      }
+
+      hasSavingsAccount{
+      if (user.getSavingsAccount.type = SAVING){
+      return true
+      }
+
+     return false;
+      }
+          hasCheckingAccount{
+      if (user.getCheckingAccount.type = CHEQUE){
+      return true
+      }
+
+     return false;
+      }
+
+// had to incoroporate because of testing
+
+    getAccounts() {
+    return accounts;
+    }
+
+    getNumberOfAccounts(){
+    return this.accounts.size;
+    }
+
+
+
+}
+
+
+-- Account class
+
+       double id;
+       double balance
+       string mobileNumber;
+       string accountNumber;
+
+      --initialise account type
+        AccountType accountType;
+
+
+    get account
+
+    public account(double id) {this.id = id}
+
+    // initialise account
+
+    public account( double balance, string id,string accountNumber,AccountType accountType){
+        this.balance = balance;
+        this.id = id;
+        this.accountNumber = accountNumber;
+        this.accountType = accountType
+    }
+
+    -- getters and setters for all types
+
+    public double deposit(values){
+           this.balance = this.balance + values;
+           print(this.balance);
+    }
+
+    public double withdraw(values){
+    if this.balance > values {
+        print ('Wrong Input: Insufficient Funds');
+        quit program/ go back to start;
+    }
+   else {
+        this.balance = this.balance - values;
+        print(balance);
+   }
+
+   public void checkBalance(){
+       print (balance);
+   }
+
+   public String getAction(action){
+
+   if action == deposit{
+   print("How much would you like to deposit")
+
+   value = scanner.value
+     double balance = this.deposit(value);
+     print ("Your new balance is " + this.balance);
+   }
+
+
+
+   if action == withdraw{
+      print("How much would you like to withdraw")
+      value = scanner.value
+
+      if (value > balance) {
+      print (Error - Wrong Input. Amount entered (" + value ") is greater than amount in account" + "(" balance + ")";
+
+      double balance = this.deposit(value);
+      print ("Your new balance is " + this.balance);
+   }
+
+   if action == balance{
+    print ("Your checking account balance is this.checkingAccount.balance and savings balance is this.savingsAccount.balance");
+
+   }
+
+
+   }
+
+
+-- enum class accountType{
+
+    CHEQUE;
+    SAVING;
+    }
+
