@@ -83,18 +83,19 @@ public void interactATM{
 private handleWithdraw{
         print (" select an account 1 for checking + user.checkingAccountNumber + 2 for savings + user.savingsAccountNumber")
         accountType = scanner next line;
-    print(" how much would you like to withdraw"
+    print(" how much would you like to withdraw")
     value = scanner double;
     try (value = a double)
     exception( getFinalString);
 
     if (accountType = savings){
-    user.getSavings.withdraw(value)
+        user.getSavings.withdraw(value)
     }
     if (accountType = checking){
-    user.getChecking.withdraw(value)
+        user.getChecking.withdraw(value)
     }
-else ( user.getFinalString);
+
+    else ( user.getFinalString);
 }
 
 private handleBalance {
@@ -119,12 +120,12 @@ private handleDeposit{
     exception( getFinalString);
 
     if (accountType = savings){
-    user.getSavings.deposit(value)
+        user.getSavings.deposit(value)
     }
     if (accountType = checking){
-    user.getChecking.deposit(value)
+        user.getChecking.deposit(value)
     }
-else ( user.getFinalString);
+    else ( user.getFinalString);
 }
 
 each handle will just change the options given and what account number
@@ -187,8 +188,10 @@ private handleWithdrawChecking{
     if (accountType = savings){
     user.getSavingsAccount.deposit(value)
     }
-else ( print("Balance:");
-else ( print("Checking " + checkingAccount.balance);
+
+    else ( print("Balance:");
+
+    else ( print("Checking " + checkingAccount.balance);
 }
 
 
