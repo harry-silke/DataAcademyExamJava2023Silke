@@ -50,14 +50,14 @@ public class ATM {
             if (user == null){
                 active = false;
                 System.out.println("Wrong Input: Invalid Account Number");
-                break;
+                interactATM();
             }
 
 
-// Will exit the program if the deposit fails
+// Will re-run the program if the deposit fails
             if (depositFailed == true) {
                 user.getFinalNotificationString();
-                break;
+                interactATM();
             }
 // Will return to the start of program if the withdrawal fails
             if (withdrawFailed == true) {
@@ -87,18 +87,20 @@ public class ATM {
             if (user.getCheckingAccount() == null) {
                 if (option.equals("1")) {
                     handleDepositSavings(user);
-                    break;
+                    interactATM();
 
                 }
                 if (option.equals("2")) {
                     handleWithdrawSavings(user);
-                    break;
+                    interactATM();
                 }
 
                 if (option.equals("3")) {
                     handleBalanceSavings(user);
+                    interactATM();
+                }
+                else {
                     break;
-
                 }
             }
 
@@ -106,17 +108,21 @@ public class ATM {
             if (user.getSavingsAccount() == null) {
                 if (option.equals("1")) {
                     handleDepositChecking(user);
-                    break;
+                    interactATM();
                 }
 
                 if (option.equals("2")) {
                     handleWithdrawChecking(user);
-                    break;
+                    interactATM();
 
                 }
 
                 if (option.equals("3")) {
                     handleBalanceChecking(user);
+                    interactATM();
+                }
+
+                else {
                     break;
                 }
             }
@@ -127,7 +133,7 @@ public class ATM {
                 if (option.equals("1")) {
                     try {
                         handleDeposit(user);
-                        break;
+                        interactATM();
                     } catch (Exception e) {
                         depositFailed = true;
                     }
@@ -144,7 +150,7 @@ public class ATM {
 
                 } else if (option.equals("3")) {
                     handleBalance(user);
-                    break;
+                    interactATM();;
 
                 } else {
                     active = false;
@@ -167,7 +173,11 @@ public class ATM {
 
         System.out.println("Select an account: 1) Checking: " + user.getCheckingAccount().getAccountNumber());
         String accountType = scanner.nextLine();
-//                    scanner.nextLine();
+        if (!(accountType.equals("1"))){
+            System.out.println("Account balance:");
+            System.out.println("Savings: " + user.getCheckingAccount().getBalance());
+            System.exit(0);
+        }
 
         System.out.println("How much would you like to withdraw?");
         double value = 0;
@@ -176,6 +186,7 @@ public class ATM {
         } catch (InputMismatchException e) {
             System.out.println("Account balance:");
             System.out.println("Savings: " + user.getCheckingAccount().getBalance());
+            System.exit(0);
         }
 
         if (accountType.equals("1")) {
@@ -184,7 +195,7 @@ public class ATM {
         } else {
             System.out.println("Account Balance:");
             System.out.println("Checking: " + user.getCheckingAccount().getBalance());
-
+            System.exit(0);
         }
     }
 
@@ -193,15 +204,21 @@ public class ATM {
 
         System.out.println("Select an account: 1) Checking: " + user.getCheckingAccount().getAccountNumber());
         String accountType = scanner.nextLine();
+        if (!(accountType.equals("1"))){
+                System.out.println("Account balance:");
+                System.out.println("Checking: " + user.getCheckingAccount().getBalance());
+                System.exit(0);
+            }
 //                    scanner.nextLine();
 
         System.out.println("How much would you like to deposit?");
+
         double value = 0;
         try {
             value = scanner.nextDouble();
         } catch (InputMismatchException e) {
             System.out.println("Account balance:");
-            System.out.println("Savings: " + user.getCheckingAccount().getBalance());
+            System.out.println("Checking: " + user.getCheckingAccount().getBalance());
         }
 
 
@@ -212,6 +229,7 @@ public class ATM {
             System.out.println("Account Balance:");
             System.out.println("Checking: " + user.getCheckingAccount().getBalance());
 
+
         }
     }
 
@@ -220,7 +238,12 @@ public class ATM {
 
         System.out.println("Select an account: 1) Checking: " + user.getCheckingAccount().getAccountNumber() + " 2) Savings: " + user.getSavingsAccount().getAccountNumber());
         String accountType = scanner.nextLine();
-//                    scanner.nextLine();
+
+        if (!(accountType.equals("1")))
+            if (!(accountType.equals("2"))) {
+                user.getFinalNotificationString();
+                System.exit(0);
+            }
 
         System.out.println("How much would you like to withdraw?");
 
@@ -229,6 +252,7 @@ public class ATM {
             value = scanner.nextDouble();
         } catch (InputMismatchException e) {
             user.getFinalNotificationString();
+            System.exit(0);
         }
 
         if (accountType.equals("1")) {
@@ -240,6 +264,7 @@ public class ATM {
 
         } else {
             user.getFinalNotificationString();
+            System.exit(0);
 
         }
     }
@@ -259,13 +284,19 @@ public class ATM {
             user.getSavingsAccount().checkBalance();
         } else {
             user.getFinalNotificationString();
+            System.exit(0);
         }
     }
 
     private void handleDeposit(User user) {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Select an account: 1) Checking: " + user.getCheckingAccount().getAccountNumber() + " 2) Savings: " + user.getSavingsAccount().getAccountNumber());
+
         String accountType = scanner.nextLine();
+        if (!(accountType.equals("1")) && !(accountType.equals("2"))){
+            user.getFinalNotificationString();
+            System.exit(0);
+        }
 //                    scanner.nextLine();
 
         System.out.println("How much would you like to deposit?");
@@ -274,6 +305,7 @@ public class ATM {
             value = scanner.nextDouble();
         } catch (InputMismatchException e) {
             user.getFinalNotificationString();
+            System.exit(0);
         }
 
 //        double value = scanner.nextDouble();
@@ -286,6 +318,7 @@ public class ATM {
 
         } else {
             user.getFinalNotificationString();
+            System.exit(0);
 
         }
     }
@@ -295,13 +328,14 @@ public class ATM {
 
         System.out.println("Select an account: 1) Checking: " + user.getCheckingAccount().getAccountNumber());
         String accountType = scanner.nextLine();
-//                    scanner.nextLine();
+
 
         if (accountType.equals("1")) {
             user.getCheckingAccount().checkBalance();
         } else {
             System.out.println("Account Balance:");
             System.out.println("Checking: " + user.getCheckingAccount().getBalance());
+            System.exit(0);
 
         }
     }
@@ -311,6 +345,11 @@ public class ATM {
 
         System.out.println("Select an Account: 1) Savings: " + user.getSavingsAccount().getAccountNumber());
         String accountType = scanner.nextLine();
+        if (!(accountType.equals("1"))){
+            System.out.println("Account balance:");
+            System.out.println("Savings: " + user.getSavingsAccount().getBalance());
+            System.exit(0);
+        }
 
         System.out.println("How much would you like to deposit?");
         double value = 0;
@@ -327,6 +366,7 @@ public class ATM {
             System.out.println("Account balance:");
             System.out.println("Savings: " + user.getSavingsAccount().getBalance());
 
+
         }
     }
 
@@ -334,6 +374,12 @@ public class ATM {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Select an account: 1) Savings: " + user.getSavingsAccount().getAccountNumber());
         String accountType = scanner.nextLine();
+        if (!(accountType.equals("1"))){
+            System.out.println("Account balance:");
+            System.out.println("Savings: " + user.getSavingsAccount().getBalance());
+            System.exit(0);
+        }
+
 //                    scanner.nextLine();
 
         if (accountType.equals("1")) {
@@ -341,7 +387,7 @@ public class ATM {
         } else {
             System.out.println("Account balance:");
             System.out.println("Savings: " + user.getSavingsAccount().getBalance());
-
+            System.exit(0);
         }
 
     }
@@ -350,6 +396,11 @@ public class ATM {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Select an account: 1) Savings: " + user.getSavingsAccount().getAccountNumber());
         String accountType = scanner.nextLine();
+        if (!(accountType.equals("1"))){
+            System.out.println("Account balance:");
+            System.out.println("Savings: " + user.getSavingsAccount().getBalance());
+            System.exit(0);
+        }
 
         System.out.println("How much would you like to withdraw?");
         double value = 0;
@@ -367,7 +418,7 @@ public class ATM {
         } else {
             System.out.println("Account balance:");
             System.out.println("Savings: " + user.getSavingsAccount().getBalance());
-
+            System.exit(0);
 
         }
     }

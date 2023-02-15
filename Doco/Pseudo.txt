@@ -311,7 +311,7 @@ public User(String firstname, String lastname, String mobileNumber, int id){
      return false;
       }
 
-// had to incoroporate because of testing
+// had to incorporate because of testing
 
     getAccounts() {
     return accounts;

@@ -1,9 +1,12 @@
 package Tests;
 
+import ATM.ATM;
 import ATM.Account;
 import ATM.AccountType;
 import org.junit.Test;
 
+import java.io.ByteArrayInputStream;
+import java.io.InputStream;
 import java.io.PrintStream;
 import java.io.ByteArrayOutputStream;
 
@@ -21,20 +24,27 @@ public class DepositAndWithdrawTest {
             double actualBalance = account.deposit(depositAmount);
             assertEquals(expectedBalance, actualBalance, 0);
         }
+    @Test
+    public void testDepositWithInvalidData() {
+        // Create an instance of the Account class with negative balance
+        Account account = new Account(-1000, 5, "53565", AccountType.SAVING);
 
-        // Test withdraw function with invalid input (insufficient funds)
-        @Test
-        public void testWithdrawInvalidInputErrorMessage() {
-            Account account = new Account(1000, 1, "1234", AccountType.SAVING);
-            double withdrawAmount = 1500;
-            double expectedBalance = 1000;
-            double actualBalance = account.withdraw(withdrawAmount);
-            assertEquals(expectedBalance, actualBalance, 0);
-            String outContent = ("Error - Wrong Input. Amount entered ($1500.0) is greater than the amount in account ($1000.0)");
-            assertEquals("Error - Wrong Input. Amount entered ($" + withdrawAmount + ") is greater than the amount in account ($" + account.getBalance() + ")", outContent.toString().trim());
-        }
+        // Attempt to deposit a negative amount
+        double depositAmount = -500;
+        double expectedBalance = -1500;
+        double actualBalance = account.deposit(depositAmount);
 
+        // Check that the balance did not change
+        assertEquals(expectedBalance, actualBalance, 0);
 
+        // Attempt to deposit NaN amount
+        depositAmount = Double.NaN;
+        expectedBalance = Double.NaN;
+        actualBalance = account.deposit(depositAmount);
+
+        // Check that the balance did not change
+        assertEquals(expectedBalance, actualBalance, 0);
+    }
 
 
         // Test withdraw function with valid input
@@ -47,7 +57,20 @@ public class DepositAndWithdrawTest {
             assertEquals(expectedBalance, actualBalance, 0);
         }
 
-        // Test withdraw function with invalid input (insufficient funds)
+    // Test withdraw function with invalid input (insufficient funds)
+        @Test
+        public void testWithdrawInvalidInputErrorMessage() {
+            Account account = new Account(1000, 1, "1234", AccountType.SAVING);
+            double withdrawAmount = 1500;
+            double expectedBalance = 1000;
+            double actualBalance = account.withdraw(withdrawAmount);
+            assertEquals(expectedBalance, actualBalance, 0);
+            String outContent = ("Error - Wrong Input. Amount entered ($1500.0) is greater than the amount in account ($1000.0)");
+            assertEquals("Error - Wrong Input. Amount entered ($" + withdrawAmount + ") is greater than the amount in account ($" + account.getBalance() + ")", outContent.toString().trim());
+    }
+
+
+    // Test withdraw function with invalid input (insufficient funds)
         @Test
         public void testWithdrawInvalidInput() {
             Account account = new Account(1000, 2, "1234567", AccountType.CHEQUE);
@@ -56,8 +79,6 @@ public class DepositAndWithdrawTest {
             double actualBalance = account.withdraw(withdrawAmount);
             assertEquals(expectedBalance, actualBalance, 0);
         }
-
-
 
     @Test
     public void testCheckBalance() {

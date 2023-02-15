@@ -15,7 +15,7 @@ public class LoadUsersTest {
 
 
         @Test
-        public void testLoadUsers() {
+        public void testLoadUsersValid() {
             ATM atm = new ATM();
             String fileName = "Data/TestData/UserInfoTest.txt";
             boolean result = atm.loadUsers(fileName);
@@ -31,5 +31,25 @@ public class LoadUsersTest {
             assertEquals(user.getMobileNumber(), "040202040");
             assertEquals(user.getID(), 1);
         }
+
+    @Test
+    public void testLoadUsersWithInvalidData() {
+        // Create an instance of the ATM class
+        ATM atm = new ATM();
+
+        // Define an invalid file name
+        String fileName = "Data/TestData/NonexistentFile.txt";
+
+        // Call the loadUsers method with the invalid file name
+        boolean result;
+        try {
+            result = atm.loadUsers(fileName);
+        } catch (Exception e) {
+            result = true;
+        }
+
+        // Check that the users list is empty
+        assertTrue(atm.getUsers().isEmpty());
+    }
 
     }
