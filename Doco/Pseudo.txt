@@ -1,3 +1,8 @@
+// Can only break when the user puts in q
+// otherwise return to beginning
+//
+
+
 
 -- main
     public void main{
@@ -22,7 +27,7 @@ public void interactATM{
     //finds what user they are and makes them current user
 
         user = users.get(id)
-        if (user == null || id != an int){
+        IF (user == null || id != an int){
                print ("Wrong input: Invalid Account ID")
                }
 
@@ -36,44 +41,44 @@ public void interactATM{
        print ('Select an option: 1) Deposit 2) Withdraw 3) Balance q) Quit'
        // check action
        option = scanner.value
-            if option = 'q'{
+            IF option = 'q'{
             print ("Your checking account balance is " + this.checkingAccount.balance  " "and savings balance is " +  this.savingsAccount.balance")
             break;
             }
 
 
-       if accountType = 'q'{
+       IF accountType = 'q'{
                    print ("Your checking account balance is " + this.checkingAccount.balance  " "and savings balance is " +  this.savingsAccount.balance")
                    go back to start;
                    }
        account = user.getAccount(accountType)
        msg = account.getAction(action)
 
-    if (user.hasCheckingAccount = false){
-        if (option = 1){
+    IF (user.hasCheckingAccount = false){
+        IF (option = 1){
             handleDepositSavings();}
-        if (option = 2){
+        IF (option = 2){
             handleWithdrawSavings();
                 }
-        if (option = 3){
+        IF (option = 3){
             handleBalanceSavings();
                 }
     }
 
-    if (user.hasSavingsAccount = false)
-        if (option = 1){
+    IF (user.hasSavingsAccount = false)
+        IF (option = 1){
             handleDepositChecking();}
-        if (option = 2){
+        IF (option = 2){
             handleWithdrawChecking();}
-        if (option = 3){
+        IF (option = 3){
             handleBalanceChecking();}
         }
-     if (user has both accounts){
-        if (option = 1){
+     IF (user has both accounts){
+        IF (option = 1){
                  handleDeposit();}
-        if (option = 2){
+        IF (option = 2){
                  handleWithdraw();}
-        if (option = 3){
+        IF (option = 3){
                  handleBalance();}
              }
 
@@ -88,27 +93,27 @@ private handleWithdraw{
     try (value = a double)
     exception( getFinalString);
 
-    if (accountType = savings){
+    IF (accountType = savings){
         user.getSavings.withdraw(value)
     }
-    if (accountType = checking){
+    IF (accountType = checking){
         user.getChecking.withdraw(value)
     }
 
-    else ( user.getFinalString);
+    ELSE ( user.getFinalString);
 }
 
 private handleBalance {
         print (" select an account 1 for checking + user.checkingAccountNumber + 2 for savings + user.savingsAccountNumber")
         accountType = scanner nextLine;
 
-         if (accountType = savings){
+         IF (accountType = savings){
             user.getSavings.checkBalance()
             }
-            if (accountType = checking){
+            IF (accountType = checking){
             user.getChecking.checkBalance(value)
             }
-        else ( user.getFinalString);
+        ELSE ( user.getFinalString);
         }
 
 private handleDeposit{
@@ -119,13 +124,13 @@ private handleDeposit{
     try (value = a double)
     exception( getFinalString);
 
-    if (accountType = savings){
+    IF (accountType = savings){
         user.getSavings.deposit(value)
     }
-    if (accountType = checking){
+    IF (accountType = checking){
         user.getChecking.deposit(value)
     }
-    else ( user.getFinalString);
+    ELSE ( user.getFinalString);
 }
 
 each handle will just change the options given and what account number
@@ -140,11 +145,11 @@ private handleDepositChecking{
     try (value = a double)
     exception( getFinalString);
 
-    if (accountType = checking){
+    IF (accountType = checking){
     user.getChecking.deposit(value)
     }
-else ( print("Balance:");
-else ( print("Checking " + checkingAccount.balance);
+        ELSE ( print("Balance:");
+         ( print("Checking " + checkingAccount.balance);
 
 
 }private handleWithdrawSaving{
@@ -155,26 +160,26 @@ else ( print("Checking " + checkingAccount.balance);
     try (value = a double)
     exception( getFinalString);
 
-    if (accountType = checking){
+    IF (accountType = checking){
     user.getSaving.withdraw(value)
     }
-else ( print("Balance:");
-else ( print("Checking " + savingsAccount.balance);
+    ELSE ( print("Balance:");
+         ( print("Checking " + savingsAccount.balance);
 }
 
 private handleWithdrawSaving{
     print (" select an account 1 for savings + user.savingsAccountNumber")
-    accountType = scanner next line;
+        accountType = scanner next line;
     print(" how much would you like to withdraw")
-    value = scanner double;
-    try (value = a double)
-    exception( getFinalString);
+        value = scanner double;
+        try (value = a double)
+        exception( getFinalString);
 
-    if (accountType = savings){
-    user.getSavingsAccount.deposit(value)
+    IF (accountType = savings){
+        user.getSavingsAccount.deposit(value)
     }
-else {( print("Balance:");
- ( print("Checking " + checkingAccount.balance);}
+ELSE {( print("Balance:");
+        ( print("Checking " + checkingAccount.balance);}
 }
 private handleWithdrawChecking{
     print (" select an account 1 for savings + user.checkingAccountNumber")
@@ -185,13 +190,12 @@ private handleWithdrawChecking{
     exception( lse ( print("Balance:");
                 ( print("Checking " + checkingAccount.balance););
 
-    if (accountType = savings){
+    IF (accountType = savings){
     user.getSavingsAccount.deposit(value)
     }
 
-    else ( print("Balance:");
-
-    else ( print("Checking " + checkingAccount.balance);
+    ELSE ( print("Balance:");
+     ( print("Checking " + checkingAccount.balance);
 }
 
 
@@ -201,7 +205,7 @@ private handleWithdrawChecking{
 
 public boolean loadAccounts(string fileName){
 
-    if (users.size() == 0) {
+    IF (users.size() == 0) {
     // users must be loaded in first
     }
     return false;
@@ -215,9 +219,9 @@ public boolean loadAccounts(string fileName){
 
         user = users.get(id)
             // create new user depending on account
-       if (accountType = 'Saving') {
+       IF (accountType = 'Saving') {
              user.createAccount(AccountType.SAVING, accountBalance, id, accountNumber);
-       } else if(accountType = 'Checking'  {
+       } ELSE IF(accountType = 'Checking'  {
              user.createAccount(AccountType.CHEQUE, accountBalance, id, accountNumber);
                      }
 
@@ -237,9 +241,9 @@ public boolean loadUsers(){
 }
 
 public hasID(users, int){
-if users.isEmpty || !user.containsKey(userID){
-return false;
-}
+    IF users.isEmpty || !user.containsKey(userID){
+        return false;
+    }
 }
 
 -- User Class
@@ -268,11 +272,11 @@ public User(String firstname, String lastname, String mobileNumber, int id){
 
       public Account createAccount(accountType, balance, id,  accountNumber){
       account newAccount = new Account(balance, id, accountNumber,accountType)
-        if (accountType == SAVING){
+        IF (accountType == SAVING){
             this.savingsAccount = newAccount;
             return this.savingsAccount;
         }
-        if (accountType == CHEQUE){
+        IF (accountType == CHEQUE){
             this.checkingAccount = newAccount;
             return this.checkingAccount;
         }
@@ -280,10 +284,10 @@ public User(String firstname, String lastname, String mobileNumber, int id){
       }
 
       getAccount(accountType){
-            if (accountType == SAVINGS){
+            IF (accountType == SAVINGS){
                  return savingsAccount;
                 }
-             if (accountType == CHEQUE){
+             IF (accountType == CHEQUE){
                 return checkingAccount;
                 }
 
@@ -297,14 +301,14 @@ public User(String firstname, String lastname, String mobileNumber, int id){
       }
 
       hasSavingsAccount{
-      if (user.getSavingsAccount.type = SAVING){
+      IF (user.getSavingsAccount.type = SAVING){
       return true
       }
 
      return false;
       }
           hasCheckingAccount{
-      if (user.getCheckingAccount.type = CHEQUE){
+      IF (user.getCheckingAccount.type = CHEQUE){
       return true
       }
 
@@ -314,11 +318,11 @@ public User(String firstname, String lastname, String mobileNumber, int id){
 // had to incorporate because of testing
 
     getAccounts() {
-    return accounts;
+        return accounts;
     }
 
     getNumberOfAccounts(){
-    return this.accounts.size;
+        return accounts.size;
     }
 
 
@@ -358,49 +362,22 @@ public User(String firstname, String lastname, String mobileNumber, int id){
     }
 
     public double withdraw(values){
-    if this.balance > values {
+    IF this.balance > values {
         print ('Wrong Input: Insufficient Funds');
-        quit program/ go back to start;
+        go back to start;
     }
-   else {
-        this.balance = this.balance - values;
+   ELSE {
+        this.balance = balance - values;
         print(balance);
+        go back to start;
    }
 
    public void checkBalance(){
        print (balance);
-   }
-
-   public String getAction(action){
-
-   if action == deposit{
-   print("How much would you like to deposit")
-
-   value = scanner.value
-     double balance = this.deposit(value);
-     print ("Your new balance is " + this.balance);
+       go back to start;
    }
 
 
-
-   if action == withdraw{
-      print("How much would you like to withdraw")
-      value = scanner.value
-
-      if (value > balance) {
-      print (Error - Wrong Input. Amount entered (" + value ") is greater than amount in account" + "(" balance + ")";
-
-      double balance = this.deposit(value);
-      print ("Your new balance is " + this.balance);
-   }
-
-   if action == balance{
-    print ("Your checking account balance is this.checkingAccount.balance and savings balance is this.savingsAccount.balance");
-
-   }
-
-
-   }
 
 
 -- enum class accountType{
